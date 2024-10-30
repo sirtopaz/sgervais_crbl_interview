@@ -6,7 +6,7 @@ import { useState } from "react";
  *
  * @param initialValue  boolean (optional)
  *
- * @returns array of current state and function to swap state
+ * @returns [on, toggle()] array of current state and function to swap state
  */
 
 export const useToggle = (initialValue = false) => {
