@@ -1,50 +1,58 @@
-# React + TypeScript + Vite
+# Sean Gervais - Crbl Interview
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Simple overview of use/purpose.
 
-Currently, two official plugins are available:
+## Description
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Based on the [Front-end Engineer take home assignement](./FE_Engineer_Take_Home_Assignment_-_Log_Viewer.pdf). This is an implemation of a Log Viewer.
 
-## Expanding the ESLint configuration
+### Problem statement
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+A customer has asked you to provide an UI for viewing the contents of a log file downloaded from an URL. They would like to be able to quickly scroll through the log entries, as well as be able to expand an entry to see the full log event. Due to the fact that log files can be huge, they would like to see the log events as soon as they are transmitted to the browser over the wire, without waiting for the entire file to download.
 
-- Configure the top-level `parserOptions` property like this:
+Here’s a sample URL that can be used for downloading the log file: https://s3.amazonaws.com/io.cribl.c021.takehome/cribl.log
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+### Acceptance criteria
+
+1. Your submission should include Unit Tests to show your ability to test your code. Full coverage is not required but you should have some working tests and a short write up of what else you would test given additional time.
+2. The component should render the list of log entries as a table with two columns. The first column should display the time (the value of the \_time property), formatted as ISO 8601.
+   The second column should present the entire event formatted as single line JSON. Each log entry should be rendered as a separate row.
+3. It should be possible to expand/collapse rows. When expanded, the row should display the entire event formatted as multiline JSON, each property in a new line.
+4. The component should pull data from the given URL and update the view while individual log entries are being downloaded from the server. The data is provided in the NDJSON format (new line delimited JSON). The UX should be optimized for time to first byte, i.e. the component should render the events as soon as they are downloaded from the server, without waiting for the entire file to download.
+
+## Solution
+
+- Create LogDataProvider - handles call to API, formats logs for view, sets up context
+- Create LogEventTable - handles display of events
+- Create LogViewer - handles wrapping of logging table
+- Nice to have Create a LogChart component that can be used in LogViewer
+
+### Package choices
+
+- `vite` - framework to handle buildling and developement - used their 'react-ts' template to init the project
+- `vitest` - framework for running unit test
+- `react-test-library`, `jsdom` - libraries for testing React and mocking a browser enviroment
+- `typscript`, `sass`, `eslint`, `prettier` - dev tools for helping to make better code
+
+## Getting Started
+
+### Local Dev Mode
+
+After checking out the repo from Git, follow these commands to install and run the app in local dev mode
+
+```
+npm i
+npm run dev
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+Use a browser to navigate to: http://localhost:5173/ (or local url indicated) to see the project running
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+### Running unit tests
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+After installing and running in local dev mode exit that server and use this command run the unit tests
+
 ```
+npm run test
+```
+
+Type prompt `q` to quit running the tests
