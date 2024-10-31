@@ -1,0 +1,45 @@
+.log-event-table {
+  table {
+    border-collapse: collapse;
+    position: relative;
+    text-align: left;
+
+    th,
+    td {
+      padding: 0.25rem;
+    }
+
+    thead {
+      tr {
+        background: gray;
+
+        th {
+          background: gray;
+          box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
+          position: sticky;
+          top: 0; /* required for the stickiness */
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        background: white;
+
+        :nth-child(odd) {
+          background: lightgray;
+        }
+
+        .open {
+          background: lightblue;
+        }
+      }
+
+      td {
+        .event {
+          overflow: hidden; // TODO maybe ellipsis?
+        }
+      }
+    }
+  }
+}
