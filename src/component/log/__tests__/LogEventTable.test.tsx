@@ -27,20 +27,18 @@ describe("COMPONENT:LOG:LogEventTable", () => {
   it("should display a table of log events", () => {
     render(<LogEventTable />);
 
-    // TODO figure out why expect .toBeInDocument() is not being recognised for types
-
     // check for headers
-    expect(screen.getByText("Toggle Event Details"));
-    expect(screen.getByText("Time"));
-    expect(screen.getByText("Event"));
+    expect(screen.getByText("Toggle Event Details")).toHaveClass("sr-only"); // hidden from view
+    expect(screen.getByText("Time")).toBeInstanceOf(HTMLTableCellElement);
+    expect(screen.getByText("Event")).toBeInstanceOf(HTMLTableCellElement);
 
     // check for expected rows
-    expect(screen.getByText('{"test": "test1"}'));
-    expect(screen.getByText('{"test": "test2"}'));
-    expect(screen.getByText('{"test": "test3"}'));
+    expect(screen.getByText('{"test": "test1"}')).toBeInTheDocument();
+    expect(screen.getByText('{"test": "test2"}')).toBeInTheDocument();
+    expect(screen.getByText('{"test": "test3"}')).toBeInTheDocument();
 
     // check for expected footer
-    expect(screen.getByText("Event Count: 3"));
+    expect(screen.getByText("Event Count: 3")).toBeInTheDocument();
 
     expect(logDataStateSpy).toHaveBeenCalled();
   });
