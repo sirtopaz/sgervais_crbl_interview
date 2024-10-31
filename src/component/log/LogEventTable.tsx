@@ -39,7 +39,9 @@ const LogEventTable: FC = () => {
           <tr>
             <td>&nbsp;</td>
             <td>{status}</td>
-            <td>Event Count: {logEventCount}</td>
+            <td>
+              Event Count: {new Intl.NumberFormat().format(logEventCount)}
+            </td>
           </tr>
         </tfoot>
       </table>
