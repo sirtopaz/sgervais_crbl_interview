@@ -22,6 +22,20 @@
           box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
           position: sticky;
           top: 0; /* required for the stickiness */
+
+          &.toggle {
+            width: calc(
+              0.5rem + 40px
+            ); // .25rem x 2 padding + icon button width of 40px
+          }
+
+          &.event-time {
+            width: 20%;
+          }
+
+          &.event-json {
+            width: auto;
+          }
         }
       }
     }
@@ -30,31 +44,24 @@
       tr {
         background: white;
 
-        :nth-child(odd) {
+        &:nth-child(odd) {
           background: lightgray;
         }
 
-        .open {
+        &.open {
           background: lightblue;
         }
-      }
 
-      td {
-        .toggle {
-          width: calc(
-            0.5rem + 40px
-          ); // .25rem x 2 padding + icon button width of 40px
-        }
+        td {
+          &.event-time {
+            overflow: hidden;
+          }
 
-        .event_time {
-          max-width: 20%;
-        }
-
-        .event-json {
-          overflow: hidden; // TODO maybe ellipsis?
-          width: auto;
-        }
-      }
-    }
+          &.event-json {
+            overflow: hidden; // TODO maybe ellipsis?
+          }
+        } // end td
+      } // end tr
+    } // end tbody
   }
-}
+} // end log-event-table

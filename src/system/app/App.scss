@@ -1,7 +1,28 @@
 #root {
-  max-width: 1280px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
+  max-width: 1280px;
+  width: 100%;
 
+  header {
+    flex: 0 0 auto;
+    padding: 0.5rem;
+
+    h1 {
+      font-size: 3.2em;
+      line-height: 1.1;
+    }
+  }
+
+  main {
+    flex: 1 1 auto;
+    overflow: auto;
+  }
+
+  footer {
+    padding: 0.5rem;
+    flex: 0 0 auto;
+  }
+}

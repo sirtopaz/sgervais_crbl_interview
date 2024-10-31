@@ -1,3 +1,3 @@
-export { default as IconButton } from "react";
+export * from "./action.constants";
 
-// TODO think about creating a toggle button as a higher order component for icon button
+export { default as IconButton } from "./IconButton";
