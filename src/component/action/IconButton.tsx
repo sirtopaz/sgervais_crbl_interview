@@ -26,15 +26,9 @@ const IconButton: FC<IconButtonProps> = ({ a11yLabel, icon, onClick }) => {
       onClick={onClick}
       type="button"
     >
-      <svg viewBox="0 0 24 24" fill="none" aria-hidden role="presentation">
+      <svg viewBox="0 0 24 24" aria-hidden role="presentation">
         <title>{a11yLabel}</title>
-        <path
-          d={ICON_MAP[icon]}
-          stroke="currentColor"
-          stroke-width="1.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
+        <path d={ICON_MAP[icon]} />
       </svg>
     </button>
   );

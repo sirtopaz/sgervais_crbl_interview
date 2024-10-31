@@ -10,10 +10,15 @@
   }
 
   svg {
+    fill: none;
     height: 1.5rem;
     width: 1.5rem;
 
     path {
+      stroke: currentColor;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
       transition: 0.5s;
     }
   }
