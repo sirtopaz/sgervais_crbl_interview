@@ -4,7 +4,7 @@ import { LogDataState } from "./data.types";
 import { LoadingStatus } from "./data.constants";
 
 /**
- * This helper fetches a stream of ndJson formatted data and returns a stream of individual Json strings
+ * This helper fetches a stream of ndJson formatted data and returns a stream of batched Json strings
  *
  * @param url location of the data to be streamed
  *
@@ -12,9 +12,8 @@ import { LoadingStatus } from "./data.constants";
  */
 export const NdjsonStreamLoader = (
   url: string
-): Promise<ReadableStream<string>> => {
-  // fetch the URL - load body as a stream - read chunk - convert into individual JSON string stream
-
+): Promise<ReadableStream<string[]>> => {
+  // fetch the URL - load body as a stream - read chunk - convert into batched JSON string stream
   return fetch(url)
     .then((response) => response.body)
     .then((body) => {
@@ -33,7 +32,7 @@ export const NdjsonStreamLoader = (
             reader.read().then(({ done, value }) => {
               if (done) {
                 if (currentChunk) {
-                  controller.enqueue(currentChunk); // push the last of the json to the stream
+                  controller.enqueue([currentChunk]); // push the last of the json to the stream
                 }
 
                 controller.close();
@@ -41,27 +40,22 @@ export const NdjsonStreamLoader = (
               }
 
               const data = decoder.decode(value, { stream: true });
-
               currentChunk += data; // concat from end of last chunk
+
               const jsonList = currentChunk.split("\n");
-              const listLength = jsonList.length;
+              const lastIdx = jsonList.length - 1;
 
-              // push all but last item (could be partial)
-              for (let i = 0; i < listLength - 1; i++) {
-                const json = jsonList[i].trim();
+              const batch = jsonList.slice(0, lastIdx - 1);
+              controller.enqueue(batch);
 
-                if (json) {
-                  controller.enqueue();
-                }
-              }
-
-              currentChunk = jsonList[listLength - 1]; // handle partial JSON at end of chunk (could be full JSON too)
+              currentChunk = jsonList[lastIdx]; // handle partial JSON at end of chunk (could be full JSON too)
 
               //recurse for more stream
               processJson();
             });
           };
 
+          // start reading the stream
           processJson();
         },
       });
