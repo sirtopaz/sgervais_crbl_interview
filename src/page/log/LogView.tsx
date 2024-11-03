@@ -1,5 +1,7 @@
 import { type FC } from "react";
 
+import "./LogView.scss";
+
 import { LogDataProvider } from "../../common/data";
 import { LogEventTable } from "../../component/log";
 

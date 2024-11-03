@@ -40,7 +40,7 @@ const LogEventRow: FC<LogEvent> = ({ json, time }) => {
 
   const icon = open ? ActionIcon.OPEN : ActionIcon.CLOSED;
   const a11y = open ? "Click to close row" : "Click to open row";
-  const cn = `log-event-row${open ? " open" : ""}`; // NOTE this is quick & dirty
+  const cn = `log-event-row${open ? " open" : ""}`; // NOTE this is quick & dirty class setting
   const clickHandler = () => {
     toggleOpen();
   };

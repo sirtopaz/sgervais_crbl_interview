@@ -1,7 +1,5 @@
 .log-event-table {
-  border: 1px solid gray; // TODO move this to LogView
-
-  table {
+  > table {
     border-collapse: collapse;
     position: relative;
     table-layout: fixed; // helps with large data sets
@@ -16,11 +14,8 @@
 
     thead {
       tr {
-        background: gray;
-
         th {
           background: gray;
-          border-color: darkgray gray;
           color: white;
           font-weight: 300;
           position: sticky;
@@ -46,16 +41,19 @@
     tbody {
       tr {
         background: white;
+        border: 1px solid white;
+        border-width: 0 0 1px 0;
 
         &:nth-child(odd) {
           background: lightgray;
         }
 
         &.open {
-          background: lightblue;
+          background: lightgoldenrodyellow;
+          border-color: lightgray;
 
           td.event-json {
-            overflow: unset;
+            overflow: auto;
             white-space: unset;
           }
         }
@@ -67,12 +65,21 @@
           }
 
           &.event-json {
-            overflow: hidden; // TODO maybe ellipsis?
+            overflow: hidden;
             padding-top: 0.6rem; // tweak to align with icon button
             white-space: nowrap;
           }
         } // end td
       } // end tr
     } // end tbody
+
+    tfoot {
+      tr {
+        td {
+          border: 1px solid gray;
+          border-width: 1px 0 0;
+        } //end td
+      } // end tr
+    } // end tfoot
   } // end table
 } // end log-event-table
