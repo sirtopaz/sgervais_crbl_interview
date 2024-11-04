@@ -45,7 +45,7 @@ export const NdjsonStreamLoader = (
               const jsonList = currentChunk.split("\n");
               const lastIdx = jsonList.length - 1;
 
-              const batch = jsonList.slice(0, lastIdx - 1);
+              const batch = jsonList.slice(0, lastIdx);
               controller.enqueue(batch);
 
               currentChunk = jsonList[lastIdx]; // handle partial JSON at end of chunk (could be full JSON too)

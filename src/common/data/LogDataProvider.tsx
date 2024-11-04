@@ -13,7 +13,7 @@ const TIME_REGEX = /"_time":(\d+),/;
 
 const LogDataProvider: FC<LogDataProviderProps> = ({ url, children }) => {
   const [status, setStatus] = useState<LoadingStatus>(LoadingStatus.START);
-  const [logEvents, setLogEvents] = useState<LogEvent[]>([]); // TODO convert to reducer?? to make adding events to list easier
+  const [logEvents, setLogEvents] = useState<LogEvent[]>([]);
   const [logEventCount, setLogEventCount] = useState(0);
 
   useEffect(() => {

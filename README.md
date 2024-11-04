@@ -1,7 +1,5 @@
 # Sean Gervais - Crbl Interview
 
-Simple overview of use/purpose.
-
 ## Description
 
 Based on the `Front-end Engineer take home assignement`. This is an implemation of a Log Viewer.
