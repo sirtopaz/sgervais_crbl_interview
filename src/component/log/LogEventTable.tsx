@@ -92,7 +92,7 @@ const LogEventTable: FC = () => {
               Time
             </th>
             <th scope="col" className="event-json">
-              Events
+              Event
             </th>
           </tr>
         </thead>

@@ -1,10 +1,25 @@
+import { vi } from "vitest";
 import { render, screen } from "@testing-library/react";
+
 import { App } from "..";
+
+// mock child components if not reflecting settings sent to them by this component
+vi.mock("../../../page/log/LogView", () => {
+  return {
+    default: () => <div>Mock LogView</div>,
+  };
+});
 
 describe("App", () => {
   it("renders the App component", () => {
     render(<App />);
 
-    screen.debug(); // prints out the jsx in the App component unto the command line
+    expect(screen.getByText("Crbl Log Viewer")).toBeInstanceOf(
+      HTMLHeadingElement
+    );
+
+    expect(screen.getByText("Mock LogView"));
+
+    expect(screen.getByText("By Sean Gervais")).toBeInTheDocument();
   });
 });
