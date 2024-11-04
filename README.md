@@ -4,7 +4,7 @@ Simple overview of use/purpose.
 
 ## Description
 
-Based on the [Front-end Engineer take home assignement](./FE_Engineer_Take_Home_Assignment_-_Log_Viewer.pdf). This is an implemation of a Log Viewer.
+Based on the `Front-end Engineer take home assignement`. This is an implemation of a Log Viewer.
 
 ### Problem statement
 
@@ -22,10 +22,10 @@ Here’s a sample URL that can be used for downloading the log file: https://s3.
 
 ## Solution
 
-- Create LogDataProvider - handles call to API, formats logs for view, sets up context
-- Create LogEventTable - handles display of events
-- Create LogViewer - handles wrapping of logging table
-- Nice to have Create a LogChart component that can be used in LogViewer
+- Created LogDataProvider - handles call to API, formats logs for view, sets up context. To meet AC4 used streaming to add responses into state instead of waiting for whole file to download
+- Created LogEventTable - handles display of events in tabular form. Due to extremely large data sets, added pagination to manage display issues
+- Create LogView - handles wrapping of logging table simulating a page in a bigger application
+- Nice to have Create a LogChart component that can be used in LogView
 
 ### Package choices
 
