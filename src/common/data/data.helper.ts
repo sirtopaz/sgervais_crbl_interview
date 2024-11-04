@@ -25,7 +25,7 @@ export const NdjsonStreamLoader = (
       const decoder = new TextDecoder();
 
       return new ReadableStream({
-        start: (controller) => {
+        start(controller) {
           let currentChunk = "";
 
           const processJson = () => {
