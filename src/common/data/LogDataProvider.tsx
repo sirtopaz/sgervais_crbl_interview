@@ -1,11 +1,11 @@
 import { useEffect, useState, type FC, type ReactNode } from "react";
 
-import { LoadingStatus } from "./data.constants";
+import { LoadingStatus, Api } from "./data.constants";
 import { LogDataState, LogEvent } from "./data.types";
 import { NdjsonStreamLoader, LogDataContext } from "./data.helper";
 
 interface LogDataProviderProps {
-  url: string; // url for logs
+  url: Api; // limit to only known APIs
   children: ReactNode;
 }
 

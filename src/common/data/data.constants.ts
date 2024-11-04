@@ -4,3 +4,7 @@ export const enum LoadingStatus {
   LOADING = "loading",
   START = "start",
 }
+
+export const enum Api {
+  LOGS = "https://s3.amazonaws.com/io.cribl.c021.takehome/cribl.log",
+}

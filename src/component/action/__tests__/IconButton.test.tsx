@@ -23,7 +23,7 @@ describe("COMPONENT:ACTION:IconButton", () => {
   });
 
   it("should have deterministic HTML", () => {
-    // as a controlled visual componet the same input props should always generate the same HTML structure
+    // as a controlled visual component the same input props should always generate the same HTML structure
 
     const { container } = render(
       <IconButton
