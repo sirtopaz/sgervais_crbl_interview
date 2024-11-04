@@ -1,4 +1,4 @@
-# Sean Gervais - Crbl Interview
+# Sean Gervais - Cribl Interview
 
 ## Description
 
