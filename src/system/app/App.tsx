@@ -8,7 +8,7 @@ const App: FC = () => {
   return (
     <>
       <header>
-        <h1>Crbl Log Viewer</h1>
+        <h1>Cribl Log Viewer</h1>
       </header>
       <LogView />
       <footer>

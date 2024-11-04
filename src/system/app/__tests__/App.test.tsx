@@ -14,7 +14,7 @@ describe("SYSTEM:APP:App", () => {
   it("renders the App component", () => {
     render(<App />);
 
-    expect(screen.getByText("Crbl Log Viewer")).toBeInstanceOf(
+    expect(screen.getByText("Cribl Log Viewer")).toBeInstanceOf(
       HTMLHeadingElement
     );
 
