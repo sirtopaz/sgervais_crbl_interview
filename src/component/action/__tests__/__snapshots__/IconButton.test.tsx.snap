@@ -1,0 +1,24 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`COMPONENT:ACTION:IconButton > should have deterministic HTML 1`] = `
+<div>
+  <button
+    aria-label="TESTING_LABEL"
+    class="icon-button"
+    type="button"
+  >
+    <svg
+      aria-hidden="true"
+      role="presentation"
+      viewBox="0 0 24 24"
+    >
+      <title>
+        TESTING_LABEL
+      </title>
+      <path
+        d="M9 5L15 12L9 19"
+      />
+    </svg>
+  </button>
+</div>
+`;

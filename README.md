@@ -21,8 +21,9 @@ Here’s a sample URL that can be used for downloading the log file: https://s3.
 ## Solution
 
 - Created utility component `LogDataProvider` - handles call to API, formats logs for view, sets up context. To meet AC4 used streaming to add responses into state instead of waiting for whole file to download
-- Created component `LogEventTable` - handles display of events in tabular form. Due to extremely large data sets, added pagination to manage display issues. Meets AC2 and AC3
+- Created visual component `LogEventTable` - handles display of events in tabular form. Due to extremely large data sets, added pagination to manage display issues. Meets AC2 and AC3
 - Created page `LogView` - handles wrapping of logging table simulating a page in a bigger application by connecting the context to the display of that data
+- Created Unit tests - examples of various types of unit testing including simple utility testing (hooks), data provider testing (with global mocks), UI component testing (with visual verfication, HTML expectation and user interaction results). Meets AC1
 
 ### Package choices
 
@@ -33,9 +34,11 @@ Here’s a sample URL that can be used for downloading the log file: https://s3.
 
 ## Getting Started
 
+To install and run the app locally follow these easy steps:
+
 ### Local Dev Mode
 
-After checking out the repo from Git, follow these commands to install and run the app in local dev mode
+After checking out the repo from Git, enter these commands to install and run the app in local dev mode
 
 ```
 npm i
@@ -51,5 +54,7 @@ After installing and running in local dev mode exit that server and use this com
 ```
 npm run test
 ```
+
+See result of tests.
 
 Type prompt `q` to quit running the tests

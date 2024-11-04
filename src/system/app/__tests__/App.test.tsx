@@ -10,7 +10,7 @@ vi.mock("../../../page/log/LogView", () => {
   };
 });
 
-describe("App", () => {
+describe("SYSTEM:APP:App", () => {
   it("renders the App component", () => {
     render(<App />);
 
