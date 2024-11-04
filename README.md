@@ -22,15 +22,14 @@ Here’s a sample URL that can be used for downloading the log file: https://s3.
 
 ## Solution
 
-- Created LogDataProvider - handles call to API, formats logs for view, sets up context. To meet AC4 used streaming to add responses into state instead of waiting for whole file to download
-- Created LogEventTable - handles display of events in tabular form. Due to extremely large data sets, added pagination to manage display issues
-- Create LogView - handles wrapping of logging table simulating a page in a bigger application
-- Nice to have Create a LogChart component that can be used in LogView
+- Created utility component `LogDataProvider` - handles call to API, formats logs for view, sets up context. To meet AC4 used streaming to add responses into state instead of waiting for whole file to download
+- Created component `LogEventTable` - handles display of events in tabular form. Due to extremely large data sets, added pagination to manage display issues. Meets AC2 and AC3
+- Created page `LogView` - handles wrapping of logging table simulating a page in a bigger application by connecting the context to the display of that data
 
 ### Package choices
 
 - `vite` - framework to handle buildling and developement - used their 'react-ts' template to init the project
-- `vitest` - framework for running unit test
+- `vitest` - framework for running unit tests
 - `react-test-library`, `jsdom` - libraries for testing React and mocking a browser enviroment
 - `typscript`, `sass`, `eslint`, `prettier` - dev tools for helping to make better code
 
