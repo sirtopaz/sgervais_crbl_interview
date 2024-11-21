@@ -50,7 +50,7 @@ const LogEventRow: FC<LogEvent> = ({ json, time }) => {
       <td className="toggle">
         <IconButton icon={icon} a11yLabel={a11y} onClick={clickHandler} />
       </td>
-      <td className="event-time">{new Date(time).toISOString()}</td>
+      <td className="event-time">{time}</td>
       <td className="event-json">{open ? <PrettyJson json={json} /> : json}</td>
     </tr>
   );

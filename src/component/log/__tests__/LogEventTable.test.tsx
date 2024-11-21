@@ -9,9 +9,9 @@ import LogEventTable from "../LogEventTable";
 // setup mocks
 
 const SAMPLE_LOG_EVENTS = [
-  { time: new Date(2024, 0, 1).getTime(), json: '{"test": "test1"}' },
-  { time: new Date(2024, 0, 1).getTime(), json: '{"test": "test2"}' },
-  { time: new Date(2024, 0, 1).getTime(), json: '{"test": "test3"}' },
+  { time: new Date(2024, 0, 1).toISOString(), json: '{"test": "test1"}' },
+  { time: new Date(2024, 0, 1).toISOString(), json: '{"test": "test2"}' },
+  { time: new Date(2024, 0, 1).toISOString(), json: '{"test": "test3"}' },
 ];
 
 const logDataStateSpy = vi

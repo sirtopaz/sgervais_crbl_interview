@@ -46,7 +46,7 @@ const LogDataProvider: FC<LogDataProviderProps> = ({ url, children }) => {
 
               return {
                 json,
-                time: Number.parseInt(time, 10),
+                time: new Date(Number.parseInt(time, 10)).toISOString(),
               };
             });
 

@@ -2,7 +2,7 @@ import { LoadingStatus } from "./data.constants";
 
 export interface LogEvent {
   json: string;
-  time: number;
+  time: string; // formatted date as ISO
 }
 
 export interface LogDataState {
