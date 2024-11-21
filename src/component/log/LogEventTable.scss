@@ -76,8 +76,11 @@
     tfoot {
       tr {
         td {
+          background: white;
           border: 1px solid gray;
           border-width: 1px 0 0;
+          bottom: 0; /* required for the stickiness */
+          position: sticky;
         } //end td
       } // end tr
     } // end tfoot
