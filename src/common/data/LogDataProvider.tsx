@@ -1,8 +1,9 @@
 import { useEffect, useState, type FC, type ReactNode } from "react";
 
+import { NdjsonStreamLoader } from "../../base/utils";
 import { LoadingStatus, Api } from "./data.constants";
 import { LogDataState, LogEvent } from "./data.types";
-import { NdjsonStreamLoader, LogDataContext } from "./data.helper";
+import { LogDataContext } from "./data.helper";
 
 interface LogDataProviderProps {
   url: Api; // limit to only known APIs
